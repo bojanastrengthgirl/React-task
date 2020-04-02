@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import Header from './Header';
-import Movies from './Movie/Movies';
+import { Switch, Route } from 'react-router-dom';
+import Home from './Home';
+import AddMovie from './Movie/AddMovie';
+import MovieService from '../services/MovieService';
 
 export default class App extends Component {
 
@@ -10,16 +12,20 @@ export default class App extends Component {
         this.state = {
             title: 'React Movie Cards'
         };
+
+        MovieService.readFromFile();
+
     }
+
 
     render() {
         return (
-            <div>
-                <Header title={this.state.title} />
-                <div className="mt-5">
-                    <Movies />
-                </div>
-            </div>
+            <main>
+                <Switch>
+                    <Route path = "/" component = {Home} exact/>
+                    <Route path ="/add" component = {AddMovie}/>
+                </Switch>
+            </main>
         );
     }
 }
