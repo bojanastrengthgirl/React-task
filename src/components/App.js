@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom';
 import Home from './Home';
 import AddMovie from './Movie/AddMovie';
 import MovieService from '../services/MovieService';
+import ManageMovies from './Movie/ManageMovies';
 
 export default class App extends Component {
 
@@ -24,6 +25,7 @@ export default class App extends Component {
                 <Switch>
                     <Route path = "/" component = {Home} exact/>
                     <Route path ="/add" component = {AddMovie}/>
+                    <Route path ="/delete" component = {ManageMovies}/>
                 </Switch>
             </main>
         );

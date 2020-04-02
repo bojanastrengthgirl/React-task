@@ -20,8 +20,8 @@ export default class MovieService {
         console.log(movies);
     }
 
-    static deleteMovie(){
-
+    static deleteMovie(id){
+        this.movies = this.movies.filter(el=> el.id !=id);
     }
 
 }
