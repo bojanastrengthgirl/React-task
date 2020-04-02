@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import MovieService from '../../services/MovieService';
-import { useHistory } from 'react-router-dom';
 
 export default class AddMovie extends Component{
 
@@ -34,7 +33,6 @@ export default class AddMovie extends Component{
 
     handleSubmit (){
         event.preventDefault();
-        const history = useHistory();
         let valid = this.validateForm(this.state);
 
         const movie ={
@@ -47,12 +45,7 @@ export default class AddMovie extends Component{
             rating: 0,
         };
 
-        if(valid){
-            MovieService.addMovies(movie);
-            history.push('/');
-        }else{
-            alert('Please fill all information');
-        }
+        valid ? MovieService.addMovies(movie): alert('Please fill all information');
              
     }
 
